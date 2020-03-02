@@ -1,0 +1,28 @@
+KeyBoard class is terrible. Replace with Scanner
+
+Remove all comments // this is a refactor.
+
+Monster factory. 
+
+Hero Factory. 
+
+Is alive needs to be a boolean. 
+
+Make all the Variables private and create get and set() methods. 
+
+Create Run Game Class.
+
+Characters Stats Object with final. 
+
+rename Hitpoint to Current Health. 
+
+Fix game breaking for the monster dying. 
+
+SpecialAbility() needs to be an abstract metho 
+
+Battle Needs to be its own class. For encapsulation. 
+
+Write Main and Battle Class.
+
+We are doing Transformers related. 
+
