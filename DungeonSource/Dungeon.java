@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 /// YOU ARE NOW COMITING THE FIRST CHANGE
 
 
@@ -35,22 +37,15 @@
 
 
 
-/*
-  This class is the driver file for the Heroes and Monsters project.  It will
-  do the following:
 
-  1.  Allow the user to choose a hero
-  2.  Randomly select a monster
-  3.  Allow the hero to battle the monster
 
-  Once a battle concludes, the user has the option of repeating the above
-
-*/
+// This class is the game execution
 public class Dungeon
 {
+
     public static void main(String[] args)
 	{
-
+        
 		Hero theHero;
 		Monster theMonster;
 
@@ -64,21 +59,17 @@ public class Dungeon
 
     }//end main method
 
-/*-------------------------------------------------------------------
-chooseHero allows the user to select a hero, creates that hero, and
-returns it.  It utilizes a polymorphic reference (Hero) to accomplish
-this task
----------------------------------------------------------------------*/
+// lets you choose a desired hero
 	public static Hero chooseHero()
 	{
 		int choice;
 		Hero theHero;
-
+        Scanner kb= new Scanner(System.in);
 		System.out.println("Choose a hero:\n" +
 					       "1. Warrior\n" +
 						   "2. Sorceress\n" +
 						   "3. Thief");
-		choice = Keyboard.readInt();
+		choice = kb.nextInt();
 
 		switch(choice)
 		{
@@ -90,13 +81,10 @@ this task
 
 			default: System.out.println("invalid choice, returning Thief");
 				     return new Thief();
-		}//end switch
-	}//end chooseHero method
+		}
+	}
 
-/*-------------------------------------------------------------------
-generateMonster randomly selects a Monster and returns it.  It utilizes
-a polymorphic reference (Monster) to accomplish this task.
----------------------------------------------------------------------*/
+	// randomly generate a monster
 	public static Monster generateMonster()
 	{
 		int choice;
@@ -113,30 +101,22 @@ a polymorphic reference (Monster) to accomplish this task.
 
 			default: System.out.println("invalid choice, returning Skeleton");
 				     return new Skeleton();
-		}//end switch
-	}//end generateMonster method
+		}
+	}
 
-/*-------------------------------------------------------------------
-playAgain allows gets choice from user to play another game.  It returns
-true if the user chooses to continue, false otherwise.
----------------------------------------------------------------------*/
+    // continue game method
 	public static boolean playAgain()
 	{
 		char again;
-
+        Scanner kb=new Scanner(system.in);
 		System.out.println("Play again (y/n)?");
-		again = Keyboard.readChar();
+		again = kb.next();
 
 		return (again == 'Y' || again == 'y');
-	}//end playAgain method
+	}
 
 
-/*-------------------------------------------------------------------
-battle is the actual combat portion of the game.  It requires a Hero
-and a Monster to be passed in.  Battle occurs in rounds.  The Hero
-goes first, then the Monster.  At the conclusion of each round, the
-user has the option of quitting.
----------------------------------------------------------------------*/
+    // the method that executes battle
 	public static void battle(Hero theHero, Monster theMonster)
 	{
 		char pause = 'p';
@@ -147,16 +127,17 @@ user has the option of quitting.
 		//do battle
 		while (theHero.isAlive() && theMonster.isAlive() && pause != 'q')
 		{
+			Scanner kb= new Scanner(System.in);
 		    //hero goes first
 			theHero.battleChoices(theMonster);
 
-			//monster's turn (provided it's still alive!)
+			//monster's turn 
 			if (theMonster.isAlive())
 			    theMonster.attack(theHero);
 
-			//let the player bail out if desired
+			//let the player quit
 			System.out.print("\n-->q to quit, anything else to continue: ");
-			pause = Keyboard.readChar();
+			pause = kb.next();
 
 		}//end battle loop
 
