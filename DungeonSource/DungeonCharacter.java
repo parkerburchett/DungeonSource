@@ -8,7 +8,10 @@ public abstract class DungeonCharacter implements Comparable
 	private double chanceToHit;
 	private int damageMin, damageMax;
 
-	public abstract int compareTo(Object o); // this is overridden in the concrete classes that extend  from this
+	public  int compareTo(Object o) // I do not belive this method is ever called
+   {
+      return 1;
+   }
 	
 	public DungeonCharacter(String name, int hitPoints, int attackSpeed,
 				     double chanceToHit, int damageMin, int damageMax)
