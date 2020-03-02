@@ -1,4 +1,4 @@
-
+import java.util.Scanner;
 
 /**
  * Title:
@@ -56,13 +56,14 @@ public class Warrior extends Hero
 		int choice;
 
 		super.battleChoices(opponent);
+		Scanner kb = new Scanner(system.in);
 
 		do
 		{
 		    System.out.println("1. Attack Opponent");
 		    System.out.println("2. Crushing Blow on Opponent");
 		    System.out.print("Choose an option: ");
-		    choice = Keyboard.readInt();
+		    choice = kb.nextInt();
 
 		    switch (choice)
 		    {
