@@ -12,8 +12,8 @@
 
 public abstract class Monster extends DungeonCharacter
 {
-	protected double chanceToHeal;
-	protected int minHeal, maxHeal;
+	private double chanceToHeal;
+	private int minHeal, maxHeal;
 
 //-----------------------------------------------------------------
   public Monster(String name, int hitPoints, int attackSpeed,
@@ -28,33 +28,39 @@ public abstract class Monster extends DungeonCharacter
 
   }//end monster construcotr
 
-//-----------------------------------------------------------------
   public void heal()
   {
 	boolean canHeal;
 	int healPoints;
 
-	canHeal = (Math.random() <= chanceToHeal) && (hitPoints > 0);
+	canHeal = (Math.random() <= chanceToHeal) && (this.getHitPoints() > 0);
 
 	if (canHeal)
 	{
 		healPoints = (int)(Math.random() * (maxHeal - minHeal + 1)) + minHeal;
 		addHitPoints(healPoints);
-		System.out.println(name + " healed itself for " + healPoints + " points.\n"
-							+ "Total hit points remaining are: " + hitPoints);
+		System.out.println(this.getName() + " healed itself for " + healPoints + " points.\n"
+							+ "Total hit points remaining are: " + this.getHitPoints());
 		System.out.println();
-	}//end can heal
+	}
 
 
-  }//end heal method
+  }
 
-//-----------------------------------------------------------------
  public void subtractHitPoints(int hitPoints)
  {
 		super.subtractHitPoints(hitPoints);
-		heal();
+		this.heal();
 
- }//end method
+ }
 
+}
 
-}//end Monster class
+/*
+Changes Made 
+
+Removed comments that did not communicate anything.
+
+Reworked heal() to use get methods since variables are now private in DungeonCharacter class.
+
+*/
