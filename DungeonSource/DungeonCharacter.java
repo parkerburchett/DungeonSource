@@ -24,6 +24,11 @@ public abstract class DungeonCharacter implements Comparable
 		this.damageMax = damageMax;
 	}
    
+   public void setName(String s)
+   {
+      this.name = s;
+   }
+   
 	public String getName()
 	{
 		return name;
@@ -128,6 +133,8 @@ CHANGES MADE
 4. Renamed DungeonCharacter to CharcterStats
 
 5. Removed white space from various methods.
+
+6. Created setName(method) that replaces the KeyboardClass
 
 */
 
