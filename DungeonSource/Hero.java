@@ -1,4 +1,4 @@
-
+import java.util.*;
 
 /**
  * Title: Hero.java
@@ -30,8 +30,8 @@
 
 public abstract class Hero extends DungeonCharacter
 {
-	protected double chanceToBlock;
-	protected int numTurns;
+	private double chanceToBlock;
+	private int numTurns;
 
 //-----------------------------------------------------------------
 //calls base constructor and gets name of hero from user
@@ -41,7 +41,17 @@ public abstract class Hero extends DungeonCharacter
   {
 	super(name, hitPoints, attackSpeed, chanceToHit, damageMin, damageMax);
 	this.chanceToBlock = chanceToBlock;
-	readName();
+	this.setName(readName());
+  }
+  
+  public double getChanceTobBlock()
+  {
+   return this.chanceToBlock;
+  }
+  
+  public int getNumTurns()
+  {
+   return this.numTurns;
   }
 
 /*-------------------------------------------------------
@@ -53,52 +63,30 @@ Returns: nothing
 This method calls: nothing
 This method is called by: hero constructor
 ---------------------------------------------------------*/
-  public void readName()
+  public String readName()
   {
 		System.out.print("Enter character name: ");
-		name = Keyboard.readString();
+		Scanner kb = new Scanner(System.in);
+      return kb.nextLine();
   }//end readName method
 
-/*-------------------------------------------------------
-defend determines if hero blocks attack
-
-Receives: nothing
-Returns: true if attack is blocked, false otherwise
-
-This method calls: Math.random()
-This method is called by: subtractHitPoints()
----------------------------------------------------------*/
   public boolean defend()
   {
 		return Math.random() <= chanceToBlock;
+  }
 
-  }//end defend method
 
-/*-------------------------------------------------------
-subtractHitPoints checks to see if hero blocked attack, if so a message
-is displayed, otherwise base version of this method is invoked to
-perform the subtraction operation.  This method overrides the method
-inherited from DungeonCharacter promoting polymorphic behavior
-
-Receives: hit points to subtract
-Returns: nothing
-
-This method calls: defend() or base version of method
-This method is called by: attack() from base class
----------------------------------------------------------*/
 public void subtractHitPoints(int hitPoints)
 	{
 		if (defend())
 		{
-			System.out.println(name + " BLOCKED the attack!");
+			System.out.println(this.getName() + " BLOCKED the attack!");
 		}
 		else
 		{
 			super.subtractHitPoints(hitPoints);
 		}
-
-
-	}//end method
+	}
 
 /*-------------------------------------------------------
 battleChoices will be overridden in derived classes.  It computes the
@@ -112,9 +100,9 @@ Returns: nothing
 This method calls: getAttackSpeed()
 This method is called by: external sources
 ---------------------------------------------------------*/
-	public void battleChoices(DungeonCharacter opponent)
+	public void battleChoices(DungeonCharacter opponent) // HE WANTS US TO REWORK THIS FOR ANOTHER METHOD
 	{
-	    numTurns = attackSpeed/opponent.getAttackSpeed();
+	    numTurns = this.getAttackSpeed()/opponent.getAttackSpeed(); // I do not understand what this does. 
 
 		if (numTurns == 0)
 			numTurns++;
@@ -124,3 +112,18 @@ This method is called by: external sources
 	}//end battleChoices
 
 }//end Hero class
+
+/*
+Changes Made
+
+1. Made variables private and created get() methods
+
+2. Rewrote readName() to return a string and then get passed into this.setName(). 
+
+3. battleChoices() was edited to use get() methods
+
+4. TODO remove BattleChoices and replace it with a method called calculateTurns() 
+   5. Make the child classes not call super Battle Choices but instead calculate Turns.
+
+
+*/
