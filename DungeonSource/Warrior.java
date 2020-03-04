@@ -18,7 +18,7 @@ public class Warrior extends Hero
     public Warrior()
 	{
 
-		super("Warrior", 125, 4, .8, 35, 60, .2, " swings a mighty sword at ");
+		super("Warrior", 125, 4, .8, 35, 60, " swings a mighty sword at ", .2);
 
 
     }//end constructor
@@ -40,14 +40,6 @@ public class Warrior extends Hero
 		}//blow failed
 
 	}//end crushingBlow method
-
-	public void attack(DungeonCharacter opponent)
-	{
-		System.out.println(name + " swings a mighty sword at " +
-							opponent.getName() + ":");
-		super.attack(opponent);
-	}//end override of attack method
-
 
 
 
@@ -74,11 +66,11 @@ public class Warrior extends Hero
 			        System.out.println("invalid choice!");
 		    }//end switch
 
-			numTurns--;
-			if (numTurns > 0)
-			    System.out.println("Number of turns remaining is: " + numTurns);
+			setNumTurns(getNumTurns() -1);
+			if (getNumTurns() > 0)
+			    System.out.println("Number of turns remaining is: " + getNumTurns());
 
-		} while(numTurns > 0);
+		} while(getNumTurns() > 0);
 
     }//end battleChoices method
 

@@ -103,8 +103,6 @@ public abstract class DungeonCharacter implements Comparable
       
       System.out.println(name + ATTACK_DISCRIPTION +
 							opponent.getName() + ":");
-
-
 		canAttack = Math.random() <= this.chanceToHit;
 
 		if (canAttack)
@@ -134,13 +132,16 @@ CHANGES MADE
       This is to make the code more readable
       
 3. deleted comments that did not communicate anything and the lines between methods.
+
+4. Reworked attack() to not need to be overridden by Monster Class
+
+5. 
+
 //-----------------------------------------------------------------
 
-4. Renamed DungeonCharacter to CharcterStats
+6. Removed white space from various methods.
 
-5. Removed white space from various methods.
-
-6. Created setName(method) that replaces the KeyboardClass
+7. Created setName(method) that replaces the KeyboardClass
 
 */
 

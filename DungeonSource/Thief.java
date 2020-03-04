@@ -4,11 +4,8 @@ public class Thief extends Hero
    
     public Thief()
 	{
-		super("Thief", 75, 6, .8, 20, 40, .5, "'s attack on ");
-
-
-
-    }//end constructor
+		super("Thief", 75, 6, .8, 20, 40,  "'s attack on ", .5);
+    }
 
 	public void surpriseAttack(DungeonCharacter opponent)
 	{
@@ -33,7 +30,7 @@ public class Thief extends Hero
 
     public void battleChoices(DungeonCharacter opponent)
 	{
-		calculateTurns(opponent);
+		battleChoices(opponent);
 		int choice;
 
 
