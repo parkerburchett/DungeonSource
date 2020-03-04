@@ -7,6 +7,7 @@ public abstract class DungeonCharacter implements Comparable
 	private int attackSpeed;
 	private double chanceToHit;
 	private int damageMin, damageMax;
+   private String ATTACK_DISCRIPTION;
 
 	public  int compareTo(Object o) // I do not belive this method is ever called
    {
@@ -14,7 +15,7 @@ public abstract class DungeonCharacter implements Comparable
    }
 	
 	public DungeonCharacter(String name, int hitPoints, int attackSpeed,
-				     double chanceToHit, int damageMin, int damageMax)
+				     double chanceToHit, int damageMin, int damageMax, String ATTACK_DISCRIPTION)
 	{
 		this.name = name;
 		this.hitPoints = hitPoints;
@@ -22,6 +23,7 @@ public abstract class DungeonCharacter implements Comparable
 		this.chanceToHit = chanceToHit;
 		this.damageMin = damageMin;
 		this.damageMax = damageMax;
+      this.ATTACK_DISCRIPTION = ATTACK_DISCRIPTION;
 	}
    
    public void setName(String s)
@@ -98,6 +100,10 @@ public abstract class DungeonCharacter implements Comparable
 	{
 		boolean canAttack;
 		int damage;
+      
+      System.out.println(name + ATTACK_DISCRIPTION +
+							opponent.getName() + ":");
+
 
 		canAttack = Math.random() <= this.chanceToHit;
 
