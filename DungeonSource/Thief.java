@@ -1,20 +1,10 @@
 
-
-/**
- * Title:
- * Description:
- * Copyright:    Copyright (c) 2001
- * Company:
- * @author
- * @version 1.0
- */
-
 public class Thief extends Hero
 {
-
+   
     public Thief()
 	{
-		super("Thief", 75, 6, .8, 20, 40, .5);
+		super("Thief", 75, 6, .8, 20, 40, .5, "'s attack on ");
 
 
 
@@ -26,8 +16,8 @@ public class Thief extends Hero
 		if (surprise <= .4)
 		{
 			System.out.println("Surprise attack was successful!\n" +
-								name + " gets an additional turn.");
-			numTurns++;
+								getName() + " gets an additional turn.");
+			this.setNumTurns(getNumTurns() -1);
 			attack(opponent);
 		}//end surprise
 		else if (surprise >= .9)
@@ -41,10 +31,9 @@ public class Thief extends Hero
 
 	}//end surpriseAttack method
 
-
     public void battleChoices(DungeonCharacter opponent)
 	{
-		super.battleChoices(opponent);
+		calculateTurns(opponent);
 		int choice;
 
 
@@ -65,11 +54,11 @@ public class Thief extends Hero
 			        System.out.println("invalid choice!");
 		    }//end switch
 
-			numTurns--;
-			if (numTurns > 0)
-			    System.out.println("Number of turns remaining is: " + numTurns);
+			this.setNumTurns(getNumTurns() -1);
+			if (getNumTurns() > 0)
+			    System.out.println("Number of turns remaining is: " + getNumTurns());
 
-		} while(numTurns > 0);
+		} while(getNumTurns() > 0);
 
     }
 }
