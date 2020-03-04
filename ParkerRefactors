@@ -1,0 +1,7 @@
+1. Made everything private and wrote and implimented Get and Set methods when needed
+2. Created MonsterFactor and HeroFactory
+3. Added ATTACK_DESCRIPTION to Dungeon Character and updated all the constructors for the child classes to pass in the text used in the atack
+4. Removed every Override for attack() and made them be in the DungeonCharacter class using the 
+  5a we need to use the strategy Pattern to create an attack interface
+5. Need to break apart attack and put it into an interface using strategy pattern.
+6. Removed a bunch of comments and white space
