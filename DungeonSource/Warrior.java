@@ -1,28 +1,9 @@
-
-
-/**
- * Title:
- * Description:
- * Copyright:    Copyright (c) 2001
- * Company:
- * @author
- * @version 1.0
- */
-
-
-
-
 public class Warrior extends Hero
 {
-
     public Warrior()
 	{
-
 		super("Warrior", 125, 4, .8, 35, 60, " swings a mighty sword at ", .2);
-
-
-    }//end constructor
-
+    }
 
 	public void crushingBlow(DungeonCharacter opponent)
 	{
@@ -40,8 +21,6 @@ public class Warrior extends Hero
 		}//blow failed
 
 	}//end crushingBlow method
-
-
 
     public void battleChoices(DungeonCharacter opponent)
 	{
