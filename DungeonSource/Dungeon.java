@@ -63,7 +63,7 @@ public class Dungeon
 	}//Monster is made
 
 	private static int getChoice(Scanner kb , int lowerbounds , int upperbounds){
-		int input = -1;
+		int input = 1;
 		while(input < lowerbounds && input > upperbounds){
 
 			try{
