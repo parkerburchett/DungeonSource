@@ -1,0 +1,13 @@
+First I got rid of the need for keyboard class. I replace all uses of it with 
+Scanner. 
+
+Cleaned up the code in playAgain, added a scanner.
+
+removed a bunch of switch cases, because he said that he likes if else's more.
+
+made a getChoice that handels exceptions and ranges, removes the code from 
+other methods and makes them much more readable.
+
+moved printMenu to its own menu to clean up the methods
+
+
