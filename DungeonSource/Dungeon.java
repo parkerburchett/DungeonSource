@@ -34,16 +34,33 @@ public class Dungeon
 
 	private static Hero getHeroChoice(Scanner kb){
 		int choice = getChoice(kb , 1 , 3);
+		HeroFactory HFact = new HeroFactory();
 		if(choice == 1){
-			return new Warrior();
+			return HFact.createWarrior();
 		}
 		else if(choice == 2){
-			return new Sorceress();
+			return HFact.createSorceress();
 		}
 		else{
-			return new Thief();
+			return HFact.createThief();
 		}
-	}
+	}//Hero is made
+	
+	private static Monster generateMonster()
+	{
+		int choice = (int)(Math.random() * 3) + 1;
+		MonsterFactory MFact = new MonsterFactory();
+
+		if(choice  == 1){
+			return MFact.createOgre();
+		}
+		else if(choice == 2){
+			return MFact.createGremlin();
+		}
+		else{
+			return MFact.createSkeleton();
+		}
+	}//Monster is made
 
 	private static int getChoice(Scanner kb , int lowerbounds , int upperbounds){
 		int input = -1;
@@ -56,23 +73,6 @@ public class Dungeon
 			}
 		}
 		return input;
-	}
-
-
-	public static Monster generateMonster()
-	{
-		int choice = (int)(Math.random() * 3) + 1;
-
-
-		if(choice  == 1){
-			return new Ogre();
-		}
-		else if(choice == 2){
-			return new Gremlin();
-		}
-		else{
-			return new Skeleton();
-		}
 	}
 
 	public static boolean playAgain(Scanner kb)
