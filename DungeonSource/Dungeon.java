@@ -61,9 +61,8 @@ public class Dungeon
 
 	public static Monster generateMonster()
 	{
-		int choice;
+		int choice = (int)(Math.random() * 3) + 1;
 
-		choice = (int)(Math.random() * 3) + 1;
 
 		if(choice  == 1){
 			return new Ogre();
@@ -74,16 +73,12 @@ public class Dungeon
 		else{
 			return new Skeleton();
 		}
-
 	}
 
 	public static boolean playAgain(Scanner kb)
 	{
-
 		System.out.println("Play again (y/n)?");
-		char again = kb.nextLine().toLowerCase().charAt(0);
-
-		return (again == 'y');
+		return  kb.next().toLowerCase().charAt(0) == 'y';
 	}//end playAgain method
 
 
@@ -106,8 +101,12 @@ public class Dungeon
 			    theMonster.attack(theHero);
 
 
-			System.out.print("\n-->q to quit, anything else to continue: ");
-			pause = kb.next().toLowerCase().charAt(0);
+			if(theHero.isAlive() && theMonster.isAlive()){
+				System.out.print("\n-->q to quit, anything else to continue: ");
+				pause = kb.next().toLowerCase().charAt(0);
+			}
+
+
 
 		}//end battle loop
 
@@ -117,6 +116,5 @@ public class Dungeon
 			System.out.println(theHero.getName() + " was defeated :-(");
 		else//both are alive so user quit the game
 			System.out.println("Quitters never win ;-)");
-
 	}
 }
