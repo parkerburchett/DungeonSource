@@ -23,11 +23,3 @@ public class MonsterFactory
       return new Skeleton();
    }
 }
-
-
-/* 
-Changes Made
-
-This is a whole new Factory
-
-*/
