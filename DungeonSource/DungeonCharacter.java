@@ -122,27 +122,5 @@ public abstract class DungeonCharacter implements Comparable
 	}
 }//end class Character
 
-/*
-CHANGES MADE
-
- 1. Made all variables private and created get() methods.
-
-2. renamed hitPoints to SubhitPoints in subtractHitPoints(int SubhitPoints) method 
-    changed method calls to be this.getHitPoints() rather than getHitPoints(). 
-      This is to make the code more readable
-      
-3. deleted comments that did not communicate anything and the lines between methods.
-
-4. Reworked attack() to not need to be overridden by Monster Class
-
-5. 
-
-//-----------------------------------------------------------------
-
-6. Removed white space from various methods.
-
-7. Created setName(method) that replaces the KeyboardClass
-
-*/
 
 
