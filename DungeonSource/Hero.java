@@ -67,18 +67,3 @@ public void subtractHitPoints(int hitPoints)
 	}//end battleChoices
 
 }//end Hero class
-
-/*
-Changes Made
-
-1. Made variables private and created get() methods
-
-2. Rewrote readName() to return a string and then get passed into this.setName(). 
-
-3. battleChoices() was edited to use get() methods
-
-4. TODO remove BattleChoices and replace it with a method called calculateTurns() 
-   5. Make the child classes not call super Battle Choices but instead calculate Turns.
-
-
-*/
