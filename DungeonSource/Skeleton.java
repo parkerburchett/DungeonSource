@@ -1,14 +1,4 @@
 
-
-/**
- * Title:
- * Description:
- * Copyright:    Copyright (c) 2001
- * Company:
- * @author
- * @version 1.0
- */
-
 public class Skeleton extends Monster
 {
     public Skeleton()
@@ -16,7 +6,3 @@ public class Skeleton extends Monster
 		super("Sargath the Skeleton", 100, 3, .8, .3, 30, 50, " slices his rusty blade at ",30, 50 );
     }
 }
-
-// added ATTACK_DISCRIPTION as a feild passed into the constructor.
-// removed @Override Attack
-// removed useless comments
