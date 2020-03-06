@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Thief extends Hero
 { 
     public Thief()
