@@ -75,7 +75,7 @@ public class Dungeon
 		return input;
 	}
 
-	public static boolean playAgain(Scanner kb)
+	private static boolean playAgain(Scanner kb)
 	{
 		System.out.println("Play again (y/n)?");
 		return  kb.next().toLowerCase().charAt(0) == 'y';
@@ -83,7 +83,7 @@ public class Dungeon
 
 
 	//Battle method, hero goes first and ends when user quits or something dies
-	public static void battle(Hero theHero, Monster theMonster , Scanner kb)
+	private static void battle(Hero theHero, Monster theMonster , Scanner kb)
  	{
 		char pause = 'p';
 		System.out.println(theHero.getName() + " battles " +
