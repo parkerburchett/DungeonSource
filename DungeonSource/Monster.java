@@ -1,15 +1,3 @@
-
-
-/**
- * Title:
- * Description:
- * Copyright:    Copyright (c) 2001
- * Company:
- * @author
- * @version 1.0
- */
-
-
 public abstract class Monster extends DungeonCharacter
 {
 	private double chanceToHeal;
@@ -54,12 +42,3 @@ public abstract class Monster extends DungeonCharacter
  }
 
 }
-
-/*
-Changes Made 
-
-Removed comments that did not communicate anything.
-
-Reworked heal() to use get methods since variables are now private in DungeonCharacter class.
-
-*/
