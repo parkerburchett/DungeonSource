@@ -77,8 +77,14 @@ public class Dungeon
 
 	private static boolean playAgain(Scanner kb)
 	{
-		System.out.println("Play again (y/n)?");
-		return  kb.next().toLowerCase().charAt(0) == 'y';
+		char playAgain = 'r';
+		while(playAgain != 'y' && playAgain != 'n'){
+			System.out.println("Play again (y/n)?");
+			playAgain = kb.next().toLowerCase().charAt(0);
+		}
+		if(playAgain == 'n')
+			System.out.println("GoodBye, Thanks for playing");
+		return (playAgain == 'y');
 	}//end playAgain method
 
 
