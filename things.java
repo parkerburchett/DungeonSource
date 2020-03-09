@@ -55,4 +55,28 @@ public int Pillar4()
 	int res= 1;
 	return res;
 }
+public void NorthDoor()
+{
+	System.out.print("you have decided to go North");
+}
+public void EastDoor()
+{
+	System.out.print("So you've decided to go ....EAST!!!");
+}
+public void SouthDoor()
+{
+	System.out.print("Decided to go South huh?");
+}
+public void WestDoor()
+{
+	System.out.print("Westward Ho!!!");
+}
+public void Entrance()
+{
+	System.out.print("this is the Entrance");
+}
+public void Exit()
+{
+	System.out.print("Congratulations you've made it to the exit");
+}
 }

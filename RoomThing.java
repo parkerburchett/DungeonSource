@@ -10,7 +10,12 @@ public interface RoomThing
  public int Pillar2();
  public int Pillar3();
  public int Pillar4();
- 
+ public void NorthDoor();
+ public void EastDoor();
+ public void SouthDoor();
+ public void WestDoor();
+ public void Entrance();
+ public void Exit();
  
  
  
