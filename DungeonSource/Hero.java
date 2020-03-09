@@ -5,6 +5,10 @@ public abstract class Hero extends DungeonCharacter
 {
 	private double chanceToBlock;
 	private int numTurns;
+   private Room currentRoom;
+   private int numHealthPotions;
+   private int numVisionPotions;
+   private ArrayList<RoomThing> principles;
 
   public Hero(String name, int hitPoints, int attackSpeed,
 				     double chanceToHit, int damageMin, int damageMax, String ATTACK_DESCRIPTION,
