@@ -14,4 +14,9 @@ public abstract class RoomItems
  {
 	this.description = description;
  }
+ public void ToString()
+ {
+	 description=(description.toString());
+	 System.out.print(description);
+ }
 }
