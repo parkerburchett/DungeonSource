@@ -72,7 +72,10 @@ public void subtractHitPoints(int hitPoints)
    
    public void encountersPit()
    {  
-      super.subtractHitPoints(0);
+      System.out.print("you've fallen into a pit");
+	   int ran=(int)(Math.random()*20);
+	   int damage=0-ran;
+      super.subtractHitPoints(damage);
    }
    
    public void useVisionPotion()
@@ -81,10 +84,31 @@ public void subtractHitPoints(int hitPoints)
          System.out.println("You cannot use a vison potion when you have none");  
       else
       {
-        //logic here to print out all the ajacent rooms
-        //Seems complicated
-        //I think the easiest way is to in Dungeon.java there is a Room[]
-        // do some basic math to get the cordinates and if the cordinates do not exist the do not print it
+        // this should call a method in the Dungeon class where to pass in the current params and then it prints everything
+        this.numVisionPotions--;
+      }    
+   }
+   
+   public void useHealthPotion()
+   {
+   int ran=(int)(Math.random()*15);
+	if(ran<5)
+		ran=5;
+	addHitPoints(ran);
+   System.out.println("You have used a health potion.");
+   System.out.println("Your health is now: "+ Integer.toString(getHitPoints()));
+   }
+   
+   public String getHeroStatus() // untested
+   {
+      String str = this.getName() + " is in room: (" + Integer.toString(currentRoom.xCord()) + ", " + Integer.toString(currentRoom.yCord())+ ") \n";
+      str = str + "Has " + Integer.toString(numHealthPotions) + " health potions.\n";
+      str = str + "Has " + Integer.toString(numVisionPotions) + " vision potions.\n";
+      str = str + " and has the following Object Orianted Principles: /n";
+      for (RoomThing s : principles)
+      {
+         str = str + s.toString() + "\n";
       }
+      return str;
    }
 }//end Hero class

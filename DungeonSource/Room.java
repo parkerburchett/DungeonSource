@@ -20,6 +20,15 @@ public class Room
       this.yCord = yCord;
    }
    
+   public int xCord()
+   {
+      return xCord;
+   }
+   public int yCord()
+   {
+      return yCord();
+   }
+   
    @Override
    public String toString()
    {
@@ -53,11 +62,8 @@ public class Room
          {
             str += "There is a " + s.toString() +"\n";
          }
-       }
-        
+       }   
         return str;
-        
-        
     }
    
     
@@ -80,7 +86,5 @@ public class Room
       {
          hero.encountersPit();
       }
-      
-      
    }
 }

@@ -7,7 +7,6 @@ public  class things implements RoomThing
 	int ran=(int)(Math.random()*20);
 	int damage=0-ran;
 	return damage;
-	
  }
  public void Empty()
  {
