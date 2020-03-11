@@ -6,9 +6,9 @@ public abstract class Hero extends DungeonCharacter
 	private double chanceToBlock;
 	private int numTurns;
    private Room currentRoom;
-   private int numHealthPotions;
-   private int numVisionPotions;
-   private ArrayList<RoomThing> principles;
+   public int numHealthPotions;
+   public int numVisionPotions;
+   public ArrayList<RoomThing> principles;
 
   public Hero(String name, int hitPoints, int attackSpeed,
 				     double chanceToHit, int damageMin, int damageMax, String ATTACK_DESCRIPTION,
@@ -69,5 +69,12 @@ public void subtractHitPoints(int hitPoints)
 		System.out.println("Number of turns this round is: " + numTurns);
 
 	}//end battleChoices
+   
+   public void encountersPit()
+   {
+      this.subtractHitPoints(0);
+      // you need to pass in a PIT
+      //pass in a pit Object
+   }
 
 }//end Hero class

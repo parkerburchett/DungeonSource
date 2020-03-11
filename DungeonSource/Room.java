@@ -57,13 +57,30 @@ public class Room
         
         return str;
         
-        // for checking conditions in the room run a this.toString().contains(keyword) on the room has a pit or a monster or a healthPotion.
-        // this do the hero.interact() in the enters method
+        
     }
    
     
    public void enter(Hero hero)
    {
       // adjust the hero's stats here eg vision potion and where the monster batle happens
+      // for checking conditions in the room run a this.toString().contains(keyword) on the room has a pit or a monster or a healthPotion.
+      // this do the hero.interact() in the enters method
+      String roomString = this.toString();
+      
+      if (roomString.contains("vision"))
+      {
+         hero.numVisionPotions++;
+      }
+      if (roomString.contains("health"))
+      {
+         hero.numHealthPotions++;
+      }
+      if (roomString.contains("pit"))
+      {
+         hero.encountersPit();
+      }
+      
+      
    }
 }
