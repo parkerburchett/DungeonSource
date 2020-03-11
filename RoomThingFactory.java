@@ -42,22 +42,7 @@ public class RoomThingFactory
    {
 	   return new Pillar4();
    }
-   public RoomThingDesc CreateNorthDoor()
-   {
-	   return new NorthDoor();
-   }
-   public RoomThingDesc CreateEastDoor()
-   {
-	   return new EastDoor();
-   }
-   public RoomThingDesc CreateSouthDoor()
-   {
-	 return new SouthDoor();
-   }
-   public RoomThingDesc CreateWestDoor()
-   {
-	  return new WestDoor();
-   }
+
    public RoomThingDesc CreateEntrance()
    {
 	   return new Entrance();
