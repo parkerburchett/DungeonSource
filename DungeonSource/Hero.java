@@ -5,6 +5,10 @@ public abstract class Hero extends DungeonCharacter
 {
 	private double chanceToBlock;
 	private int numTurns;
+   private Room currentRoom;
+   public int numHealthPotions;
+   public int numVisionPotions;
+   public ArrayList<RoomThing> principles;
 
   public Hero(String name, int hitPoints, int attackSpeed,
 				     double chanceToHit, int damageMin, int damageMax, String ATTACK_DESCRIPTION,
@@ -65,5 +69,22 @@ public void subtractHitPoints(int hitPoints)
 		System.out.println("Number of turns this round is: " + numTurns);
 
 	}//end battleChoices
-
+   
+   public void encountersPit()
+   {  
+      super.subtractHitPoints(0);
+   }
+   
+   public void useVisionPotion()
+   {
+      if (numVisionPotions <= 0)
+         System.out.println("You cannot use a vison potion when you have none");  
+      else
+      {
+        //logic here to print out all the ajacent rooms
+        //Seems complicated
+        //I think the easiest way is to in Dungeon.java there is a Room[]
+        // do some basic math to get the cordinates and if the cordinates do not exist the do not print it
+      }
+   }
 }//end Hero class
