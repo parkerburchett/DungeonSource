@@ -104,11 +104,19 @@ public void subtractHitPoints(int hitPoints)
       String str = this.getName() + " is in room: (" + Integer.toString(currentRoom.xCord()) + ", " + Integer.toString(currentRoom.yCord())+ ") \n";
       str = str + "Has " + Integer.toString(numHealthPotions) + " health potions.\n";
       str = str + "Has " + Integer.toString(numVisionPotions) + " vision potions.\n";
-      str = str + " and has the following Object Orianted Principles: /n";
+      str = str + "And has the following Object Orianted Principles: /n";
       for (RoomThing s : principles)
       {
          str = str + s.toString() + "\n";
       }
       return str;
+   }
+   
+   public void isDead()
+   {
+      if (getHitPoints() <= 0)
+      {
+         System.out.println("You are dead. Program should now off you to go again. Unsure Where that should live");
+      }
    }
 }//end Hero class
