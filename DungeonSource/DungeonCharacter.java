@@ -9,7 +9,7 @@ public abstract class DungeonCharacter implements Comparable
 	private int damageMin, damageMax;
    private String ATTACK_DISCRIPTION;
 
-	public  int compareTo(Object o) // I do not belive this method is ever called
+	public  int compareTo(Object o) // I do not believe this method is ever called
    {
       return 1;
    }

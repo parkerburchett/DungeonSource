@@ -5,19 +5,60 @@ public class Dungeon
     public static void main(String[] args)
 	{
 		Scanner kb = new Scanner(System.in);
-
 		Hero theHero;
-		Monster theMonster;
 
 		do
 		{
 		    theHero = chooseHero(kb);
-		    theMonster = generateMonster();
-			battle(theHero, theMonster , kb);
+			Maze theMaze = new Maze(theHero);
+		    //playGame(maze , kb , theHero , theMonster);
 
 		} while (playAgain(kb));
 
     }//end main method
+
+
+
+	public static void playGame(Maze maze , Scanner kb , Hero theHero, Monster theMonster ){
+    	do{
+    		System.out.println("What direction would you like to go?");
+			directionPrompt();
+    		move(maze , kb);
+
+		} while(true);//make the condition finding all the pillars and at the exit position
+		//then the exit becomes available
+
+
+	}
+
+	public static void directionPrompt(){
+		System.out.println("\nW = North  S = South\nA = West  D = East");
+	}
+	public static String inputDirection(Scanner kb){
+    	String input = " ";
+    	while(!input.equals("w") || !input.equals("a") || !input.equals("s") || !input.equals("d")){
+    		input = kb.nextLine().toLowerCase();
+		}
+    	return input;
+	}
+
+	public static void move( Maze maze , Scanner kb){
+    	String direction = inputDirection(kb);
+    	/*
+    	if(direction.equals("w")){
+    		maze.moveNorth();
+		}
+    	else if(direction.equals("a")){
+    		maze.moveWest();
+		}
+    	else if(direction.equals("s")){
+    		maze.moveSouth();
+		}
+    	else{
+    		maze.moveEast();
+		}
+		*/
+	}
 
 	public static Hero chooseHero(Scanner kb)
 	{
@@ -26,10 +67,11 @@ public class Dungeon
 	}
 
 	private static void printMenu(){
-		System.out.println("Choose a hero:\n" +
+		System.out.println(
 				"1. Warrior\n" +
 				"2. Sorceress\n" +
 				"3. Thief");
+		System.out.print("Choose a hero:");
 	}
 
 	private static Hero getHeroChoice(Scanner kb){
@@ -63,16 +105,20 @@ public class Dungeon
 	}//Monster is made
 
 	private static int getChoice(Scanner kb , int lowerbounds , int upperbounds){
-		int input = 1;
-		while(input < lowerbounds && input > upperbounds){
+		String input = kb.nextLine();
+		int inputInt = 0;
 
 			try{
-				input = kb.nextInt();
+				inputInt = Integer.parseInt(input);
 			}catch (Exception e){
-				System.out.println("invalid number");
+				System.out.println("only numbers");
 			}
-		}
-		return input;
+			if(inputInt < lowerbounds || inputInt > upperbounds){
+				System.out.println("invalid, try again");
+				return getChoice(kb,lowerbounds,upperbounds);
+			}
+
+		return inputInt;
 	}
 
 	private static boolean playAgain(Scanner kb)
