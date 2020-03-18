@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 
-
 // A room will never have more than more than 2 things
 public class Room
 {
@@ -86,9 +85,9 @@ public class Room
    public void printRoomToScreen()
    {
       boolean moreThanOneThing = false;
+
+      if( 
       
       String visualizedRoom = RoomEdges.chooseRoom(xCord,yCord, center);
-      
-      
    }
 }
