@@ -1,5 +1,7 @@
+
 public class MonsterFactory
 {
+
   public MonsterFactory factory;
 
    public MonsterFactory()
@@ -19,15 +21,5 @@ public class MonsterFactory
    public Monster createSkeleton()
    {
       return new Skeleton();
-   }
-   
-   public Monster createDragon()
-   {
-      return new Dragon();
-   }
-   
-   public Monster createGhoul()
-   {
-      return new Ghoul();
    }
 }
