@@ -4,6 +4,9 @@ public class RoomEdges
 {   
    public static String horizontalDoor = "* - *\n";
    public static String horizontalWall = "* * *\n";
+   public static String setMidRightDoor(String str){return "* " + str + " |\n";}
+   public static String setMidBothDoor(String str) {return "| " + str + " |\n";}
+   public static String setMidLeftDoor(String str){return "| " + str + " *\n";}
        
    public String RoomChooser(String thingInRoom, int xCord, int yCord)
    {
@@ -12,16 +15,73 @@ public class RoomEdges
       return null;
    }   
 
-   public static String topLeftCorner(String str)   // I don't know how the statics work. I get an error when it is non static but I don't know what to do to fix ti
+   public static String topLeftCorner(String obj)   // I don't know how the statics work. I get an error when it is non static but I don't know what to do to fix ti
    {
       String top = horizontalWall;
-      String mid = setMidRightDoor(str); 
+      String mid = setMidRightDoor(obj); 
+      String bot = horizontalDoor;
+      return top + mid + bot;
+   }
+     
+   public static String topRightCorner(String obj)
+   {
+      String top = horizontalWall;
+      String mid = setMidLeftDoor(obj); 
+      String bot = horizontalDoor;
+      return top + mid + bot;
+   }
+   public static String botLeftCorner(String obj)
+   {
+      String top = horizontalDoor;
+      String mid = setMidRightDoor(obj); 
+      String bot = horizontalWall;
+      return top + mid + bot;
+   }
+
+   public static String botRightCorner(String obj)
+   {
+      String top = horizontalDoor;
+      String mid = setMidLeftDoor(obj); 
+      String bot = horizontalWall;
+      return top + mid + bot;
+   }
+   
+   public static String centerRoom(String obj)
+   {
+      String top = horizontalDoor;
+      String mid = setMidBothDoor(obj); 
       String bot = horizontalDoor;
       return top + mid + bot;
    }
    
-   public static String setMidRightDoor(String str){return "* " + str + " |\n";}
-   public static String setMidBothDoor(String str) {return "| " + str + " |\n";}
-   public static String setMidLeftDoor(String str){return "| " + str + " *\n";}
- 
+   public static String leftEdge(String obj)
+   {
+      String top = horizontalDoor;
+      String mid = setMidRightDoor(obj); 
+      String bot = horizontalDoor;
+      return top + mid + bot;
+   }
+   public static String rightEdge(String obj)
+   {
+      String top = horizontalDoor;
+      String mid = setMidLeftDoor(obj); 
+      String bot = horizontalDoor;
+      return top + mid + bot;
+   }
+   
+   public static String topEdge(String obj)
+   {
+      String top = horizontalWall;
+      String mid = setMidBothDoor(obj); 
+      String bot = horizontalDoor;
+      return top + mid + bot;
+   }
+   
+   public static String botEdge(String obj)
+   {
+      String top = horizontalDoor;
+      String mid = setMidBothDoor(obj); 
+      String bot = horizontalWall;
+      return top + mid + bot;
+   }
 }
