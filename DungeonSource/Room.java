@@ -37,7 +37,7 @@ public class Room
        if (door == null)
          str = "You have entered a room at " ;
 
-       //These are all wrong, like what the fuck
+       //These are all wrong
        else 
        {
          //str = "You have entered an " + door.toString() + " at ";
@@ -90,5 +90,13 @@ public class Room
       {
          hero.encountersPit();
       }
+   }
+   
+   public void printRoomToScreen()
+   {
+      // This method prints the current room to the screen as described in the project assignment
+      // calls the RoomEdges method
+      
+      
    }
 }
