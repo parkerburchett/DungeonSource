@@ -78,24 +78,16 @@ public class Room
       // this do the hero.interact() in the enters method
       String roomString = this.toString();
       
-      if (roomString.contains("vision"))
-      {
-         hero.numVisionPotions++;
-      }
-      if (roomString.contains("health"))
-      {
-         hero.numHealthPotions++;
-      }
-      if (roomString.contains("pit"))
-      {
-         hero.encountersPit();
-      }
+      if (roomString.contains("vision")){hero.numVisionPotions++;}
+      if (roomString.contains("health")){hero.numHealthPotions++;}
+      if (roomString.contains("pit")){hero.encountersPit();}
    }
    
    public void printRoomToScreen()
    {
-      // This method prints the current room to the screen as described in the project assignment
-      // calls the RoomEdges method
+      boolean moreThanOneThing = false;
+      
+      String visualizedRoom = RoomEdges.chooseRoom(xCord,yCord, center);
       
       
    }
