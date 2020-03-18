@@ -4,21 +4,28 @@ import java.util.ArrayList;
 // A room will never have more than more than 2 things
 public class Room
 {
-   private RoomThingDesc door; // hold exit or entrence;
-   private Monster monster; 
-   private ArrayList<RoomThingDesc> other; // hold everything else
-   
-   private int xCord;
-   private int yCord;
+    private RoomThingDesc door; // hold exit or entrence;
+    private Monster monster;
+
+    private int xCord;
+    private int yCord;
+
+    //private Room north , south , east , west;
 
    //Added desc to door
-   public Room(Monster monster, RoomThingDesc door, ArrayList<RoomThingDesc> other, int xCord, int yCord)
+   public Room(Monster monster, RoomThingDesc door, int xCord, int yCord )
    {
       this.monster = monster;
       this.door = door;
-      this.other = other;
       this.xCord = xCord;
       this.yCord = yCord;
+
+      /*
+      this.north = north;
+      this.south = south;
+      this.east = east;
+      this.west = west;
+       */
    }
    
    public int xCord()
@@ -29,15 +36,15 @@ public class Room
    {
       return yCord();
    }
-   
+
    @Override
    public String toString()
    {
        String str;
-       if (door == null)
+       if (door != null)//??
          str = "You have entered a room at " ;
 
-       //These are all wrong, like what the fuck
+
        else 
        {
          //str = "You have entered an " + door.toString() + " at ";
@@ -55,18 +62,22 @@ public class Room
          str += "Oh goodness! There is a " + monster.toString() +" in this room! \n";
        }
 
+       /*
        //condition was other.size == 0
        if (other == null)
        {
          str += "There are no items in this room";
        }
+
        else
        {
          for(RoomThingDesc s : other)
          {
             str += "There is a " + s.toString() +"\n";
          }
-       }   
+       }
+
+        */
         return str;
     }
    
@@ -91,4 +102,6 @@ public class Room
          hero.encountersPit();
       }
    }
+
+   public Monster getMonster(){return this.monster;}
 }

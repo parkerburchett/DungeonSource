@@ -14,6 +14,7 @@ public abstract class RoomItems
  {
 	this.description = description;
  }
+ //toString??
  public void ToString()
  {
 	 description=(description.toString());

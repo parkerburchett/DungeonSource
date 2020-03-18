@@ -17,13 +17,4 @@ public class HeroFactory
    {
       return new Warrior();
    }
-   
-   public Hero createArcher()
-   {
-      return new Archer();
-   }
-   public Hero createPaladin()
-   {
-      return new Paladin();
-   }
 }

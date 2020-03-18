@@ -11,7 +11,7 @@ public class Dungeon
 		{
 		    theHero = chooseHero(kb);
 			Maze theMaze = new Maze(theHero);
-		    //playGame(maze , kb , theHero , theMonster);
+			playGame(theMaze , kb , theHero);
 
 		} while (playAgain(kb));
 
@@ -19,15 +19,19 @@ public class Dungeon
 
 
 
-	public static void playGame(Maze maze , Scanner kb , Hero theHero, Monster theMonster ){
+	public static void playGame(Maze maze , Scanner kb , Hero theHero){
     	do{
     		System.out.println("What direction would you like to go?");
 			directionPrompt();
     		move(maze , kb);
+    		if(maze.currrentLocation.getMonster() != null){
+    			battle(theHero , maze.currrentLocation.getMonster() , kb);
+			}
 
-		} while(true);//make the condition finding all the pillars and at the exit position
+		} while(true);// Needs condition
+
 		//then the exit becomes available
-
+		//System.out.println("The game is done here I guess");
 
 	}
 
@@ -35,16 +39,16 @@ public class Dungeon
 		System.out.println("\nW = North  S = South\nA = West  D = East");
 	}
 	public static String inputDirection(Scanner kb){
-    	String input = " ";
-    	while(!input.equals("w") || !input.equals("a") || !input.equals("s") || !input.equals("d")){
-    		input = kb.nextLine().toLowerCase();
+    	String input = kb.nextLine().toLowerCase();
+    	if(input.equals("w") || input.equals("a") || input.equals("s") || input.equals("d")){
+    		return input;
 		}
-    	return input;
+    	return inputDirection(kb);
 	}
 
 	public static void move( Maze maze , Scanner kb){
     	String direction = inputDirection(kb);
-    	/*
+
     	if(direction.equals("w")){
     		maze.moveNorth();
 		}
@@ -57,7 +61,7 @@ public class Dungeon
     	else{
     		maze.moveEast();
 		}
-		*/
+
 	}
 
 	public static Hero chooseHero(Scanner kb)
@@ -87,7 +91,8 @@ public class Dungeon
 			return HFact.createThief();
 		}
 	}//Hero is made
-	
+
+	//pretty sure this isn't needed
 	private static Monster generateMonster()
 	{
 		int choice = (int)(Math.random() * 3) + 1;

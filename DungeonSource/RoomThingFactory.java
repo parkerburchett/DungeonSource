@@ -22,23 +22,23 @@ public class RoomThingFactory
    {
 	   return new VisionPotion();
    }
-   public RoomThingDesc CreateMonsterEncounter()
+   public RoomThingDesc createMonsterEncounter()
    {
 	   return new MonsterEncounter();
    }
-   public RoomThingDesc CreatePillar1()
+   public RoomThingDesc createPillar1()
    {
 	   return new Pillar1();
    }
-   public RoomThingDesc CreatePillar2()
+   public RoomThingDesc createPillar2()
    {
 	  return new Pillar2();
    }
-   public RoomThingDesc CreatePillar3()
+   public RoomThingDesc createPillar3()
    {
 	   return new Pillar3();
    }
-   public RoomThingDesc CreatePillar4()
+   public RoomThingDesc createPillar4()
    {
 	   return new Pillar4();
    }
