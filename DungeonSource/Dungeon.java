@@ -70,44 +70,37 @@ public class Dungeon
 		System.out.println(
 				"1. Warrior\n" +
 				"2. Sorceress\n" +
-				"3. Thief");
+				"3. Thief\n" +
+            "4. Archer\n" +
+            "5. Paladin\n" );
 		System.out.print("Choose a hero:");
 	}
 
 	private static Hero getHeroChoice(Scanner kb){
-		int choice = getChoice(kb , 1 , 3);
+		int choice = getChoice(kb , 1 , 5);
 		HeroFactory HFact = new HeroFactory();
-		if(choice == 1){
-			return HFact.createWarrior();
-		}
-		else if(choice == 2){
-			return HFact.createSorceress();
-		}
-		else{
-			return HFact.createThief();
-		}
-	}//Hero is made
+      
+		if(choice == 1) {return HFact.createWarrior();}
+		else if(choice == 2) {return HFact.createSorceress();}
+		else if (choice == 3){ return HFact.createThief();}
+      else if (choice == 4){ return HFact.createArcher();}
+      else {return HFact.createPaladin();}
+	}
 	
 	private static Monster generateMonster()
 	{
-		int choice = (int)(Math.random() * 3) + 1;
+		int choice = (int)(Math.random() * 5) + 1;
 		MonsterFactory MFact = new MonsterFactory();
-
-		if(choice  == 1){
-			return MFact.createOgre();
-		}
-		else if(choice == 2){
-			return MFact.createGremlin();
-		}
-		else{
-			return MFact.createSkeleton();
-		}
-	}//Monster is made
+		if(choice  == 1) {return MFact.createOgre();}
+		else if (choice == 2) {return MFact.createGremlin();}
+		else if (choice == 3) {return MFact.createSkeleton();}
+      else if (choice == 4) {return MFact.createDragon();}
+      else {return MFact.createGhoul();}
+	}
 
 	private static int getChoice(Scanner kb , int lowerbounds , int upperbounds){
 		String input = kb.nextLine();
 		int inputInt = 0;
-
 			try{
 				inputInt = Integer.parseInt(input);
 			}catch (Exception e){
@@ -117,7 +110,6 @@ public class Dungeon
 				System.out.println("invalid, try again");
 				return getChoice(kb,lowerbounds,upperbounds);
 			}
-
 		return inputInt;
 	}
 
@@ -132,7 +124,6 @@ public class Dungeon
 			System.out.println("GoodBye, Thanks for playing");
 		return (playAgain == 'y');
 	}//end playAgain method
-
 
 	//Battle method, hero goes first and ends when user quits or something dies
 	private static void battle(Hero theHero, Monster theMonster , Scanner kb)
@@ -151,15 +142,10 @@ public class Dungeon
 			//monster's turn
 			if (theMonster.isAlive())
 			    theMonster.attack(theHero);
-
-
 			if(theHero.isAlive() && theMonster.isAlive()){
 				System.out.print("\n-->q to quit, anything else to continue: ");
 				pause = kb.next().toLowerCase().charAt(0);
 			}
-
-
-
 		}//end battle loop
 
 		if (!theMonster.isAlive())

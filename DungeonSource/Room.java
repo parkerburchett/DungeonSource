@@ -86,8 +86,7 @@ public class Room
    {
       boolean moreThanOneThing = false;
 
-      if( 
-      
+      String center ="need to make work";     
       String visualizedRoom = RoomEdges.chooseRoom(xCord,yCord, center);
    }
 }

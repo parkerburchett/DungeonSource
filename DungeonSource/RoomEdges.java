@@ -8,7 +8,7 @@ public class RoomEdges
    private static String setMidBothDoor(String str) {return "| " + str + " |\n";}
    private static String setMidLeftDoor(String str) {return "| " + str + " *\n";}
        
-   public static String roomChooser(int xCord, int yCord, String center)
+   public static String chooseRoom(int xCord, int yCord, String center)
    {
       // Pass in the symbol for what you want in the center of the door and the cordinates of the room into the RoomChooser Method 
       // Corner Logic
