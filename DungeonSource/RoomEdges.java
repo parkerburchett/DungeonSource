@@ -2,17 +2,28 @@
 
 public class RoomEdges
 {   
-   public static String horizontalDoor = "* - *\n";
-   public static String horizontalWall = "* * *\n";
-   public static String setMidRightDoor(String str){return "* " + str + " |\n";}
-   public static String setMidBothDoor(String str) {return "| " + str + " |\n";}
-   public static String setMidLeftDoor(String str){return "| " + str + " *\n";}
+   private static String horizontalDoor = "* - *\n";
+   private static String horizontalWall = "* * *\n";
+   private static String setMidRightDoor(String str) {return "* " + str + " |\n";}
+   private static String setMidBothDoor(String str) {return "| " + str + " |\n";}
+   private static String setMidLeftDoor(String str) {return "| " + str + " *\n";}
        
-   public String RoomChooser(String thingInRoom, int xCord, int yCord)
+   public static String roomChooser(int xCord, int yCord, String center)
    {
-   // Pass in the symbol for what you want in the center of the door and the cordinates of the room into the RoomChooser Method 
-   // DoorChooser will return the proper String repersentation of the door.
-      return null;
+      // Pass in the symbol for what you want in the center of the door and the cordinates of the room into the RoomChooser Method 
+      // Corner Logic
+      if(xCord== 0 && yCord == 0) {return topLeftCorner(center);}
+      else if(xCord== 4 && yCord == 0) {return topRightCorner(center);}  
+      else if(xCord== 0 && yCord == 4) {return botLeftCorner(center);}
+      else if(xCord== 4 && yCord == 4) {return botRightCorner(center);}
+      // At this point the room is not a corner
+      // Edge Logic
+      else if(xCord == 0) {return leftEdge(center);}   
+      else if(xCord == 4) {return rightEdge(center);}    
+      else if(yCord == 0) {return topEdge(center);}   
+      else if(yCord == 4) {return botEdge(center);}
+      // at this point the room is a center room
+      else {return centerRoom(center);}
    }   
 
    public static String topLeftCorner(String obj)   // I don't know how the statics work. I get an error when it is non static but I don't know what to do to fix ti
