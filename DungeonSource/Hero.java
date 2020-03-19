@@ -8,7 +8,7 @@ public abstract class Hero extends DungeonCharacter
     private Room currentRoom;
     public int numHealthPotions;
     public int numVisionPotions;
-    public ArrayList<RoomThing> principles;
+    public ArrayList<String> principles;
     public Maze maze;
 
    public Hero(String name, int hitPoints, int attackSpeed,
@@ -87,7 +87,7 @@ public abstract class Hero extends DungeonCharacter
       str = str + "Has " + Integer.toString(numHealthPotions) + " health potions.\n";
       str = str + "Has " + Integer.toString(numVisionPotions) + " vision potions.\n";
       str = str + " and has the following OO Principles: /n";
-      for (RoomThing s : principles){ str = str + s.toString() + "\n";}
+      for (String s : principles){ str = str + s + "\n";}
       return str;
    }
    public void moveNorth()
