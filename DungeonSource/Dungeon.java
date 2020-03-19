@@ -8,8 +8,9 @@ public class Dungeon
 		Hero theHero;
 		do
 		{
-		   theHero = chooseHero(kb);
+		   theHero = chooseHero(kb);  
 			Maze theMaze = new Maze(theHero);
+         theHero.setCurrentRoom(theMaze);
 			playGame(theMaze , kb , theHero);
 		} while (playAgain(kb));
 
@@ -22,7 +23,7 @@ public class Dungeon
     		System.out.println("What direction would you like to go?");
 			directionPrompt();
     		move(theHero , kb);
-    		if(maze.currrentLocation.getMonster() != null){
+    		if(theHero.currentRoom.getMonster() != null){
     			battle(theHero , maze.currrentLocation.getMonster() , kb);
 			}
 		} while(true);// Needs condition
@@ -43,7 +44,6 @@ public class Dungeon
 
 	public static void move( Hero hero , Scanner kb){
     	String direction = inputDirection(kb);
-
     	if(direction.equals("w")){	hero.moveNorth();}
     	else if(direction.equals("a")){hero.moveWest();}
     	else if(direction.equals("s")){hero.moveSouth();}

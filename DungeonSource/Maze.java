@@ -12,7 +12,7 @@ public class Maze {
         public Room[][] buildDungeon()
         {
             Random r = new Random();
-            int entranceKey = r.nextInt(5) + r.nextInt(5) *10;
+            int entranceKey = 0;
             int exitKey;
             do
             {

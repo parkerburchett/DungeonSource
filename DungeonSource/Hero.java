@@ -5,7 +5,7 @@ public abstract class Hero extends DungeonCharacter
 {
 	 private double chanceToBlock;
 	 private int numTurns;
-    private Room currentRoom;
+    public Room currentRoom;
     public int numHealthPotions;
     public int numVisionPotions;
     public ArrayList<String> principles;
@@ -23,6 +23,11 @@ public abstract class Hero extends DungeonCharacter
    public double getChanceTobBlock(){return this.chanceToBlock;}
    public int getNumTurns(){return this.numTurns;}
    public void setNumTurns(int n){this.numTurns = n;}
+   
+   public void setCurrentRoom(Maze maze)
+   {
+      this.currentRoom = maze.maze[0][0];
+   }
 
    public String readName()
    {
