@@ -67,20 +67,20 @@ public class Maze {
         public RoomThingDesc entranceExit(int x, int y){
             if(entranceMade && exitMade)
                 return null;
-            if(entranceMade && !exitMade && getRandomChance(10)){
-                maze[x][y].setMonsterNull();
+            if(entranceMade && !exitMade && getRandomChance(40)){
+
                 return new Exit();
             }
-            if(!entranceMade && exitMade && getRandomChance(10)){
-                maze[x][y].setMonsterNull();
+            if(!entranceMade && exitMade && getRandomChance(40)){
+                this.currrentLocation = maze[x][y];
                 return new Entrance();
             }
             if(x == 4 && y == 4 && !entranceMade){
-                maze[x][y].setMonsterNull();
+                this.currrentLocation = maze[x][y];
                 return new Entrance();
             }
             if(x == 4 && y == 3 && !exitMade){
-                maze[x][y].setMonsterNull();
+
                 return new Exit();
             }
             return null;
