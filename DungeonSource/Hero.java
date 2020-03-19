@@ -77,7 +77,6 @@ public abstract class Hero extends DungeonCharacter
          System.out.println("You cannot use a vison potion when you have none");  
       else
       {
-        // Not Finished
         this.numVisionPotions--;
       }    
    }
@@ -146,6 +145,21 @@ public abstract class Hero extends DungeonCharacter
          int currentXCord = currentRoom.xCord();
          int currentYCord = currentRoom.yCord();
          currentRoom = maze.getRoom(currentXCord-1, currentYCord);
-      }   }
+      }   
+   }
+   
+   public void entersRoom()
+   {
+      if (currentRoom.hasPit)
+         encountersPit();
+      if (currentRoom.hasHealthPotion)
+         numHealthPotions++;
+      if(currentRoom.hasVisionPotion)
+         numVisionPotions++;
+      if(currentRoom.OOprinciple != null)
+         principles.add(currentRoom.OOprinciple);
+      System.out.println("You have entered this room"); 
+      currentRoom.printRoomToScreen();  
+   }
    
 }//end Hero class

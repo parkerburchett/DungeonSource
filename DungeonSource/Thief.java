@@ -30,7 +30,7 @@ public class Thief extends Hero
 
     public void battleChoices(DungeonCharacter opponent)
 	{
-		battleChoices(opponent);
+		super.battleChoices(opponent);
 		int choice;
 
 

@@ -26,6 +26,7 @@ public class Dungeon
          System.out.println("What direction would you like to go?");
 			directionPrompt();
     		move(theHero , kb);
+         theHero.entersRoom();
     		if(theHero.currentRoom.getMonster() != null){
     			battle(theHero , Hero.currentRoom.getMonster() , kb);
 			}

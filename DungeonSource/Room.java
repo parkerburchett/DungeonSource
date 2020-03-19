@@ -1,6 +1,5 @@
 import java.util.*;
 
-// A room will never have more than more than 2 things
 public class Room
 {
    private boolean hasExit;
@@ -40,8 +39,24 @@ public class Room
      
    public void printRoomToScreen()
    {
-      boolean moreThanOneThing = false;
-      String center ="need to make work";     
+      String center;
+      if (hasPit)
+         center ="P";
+      else if(hasHealthPotion)
+         center = "H";
+      else if(hasVisionPotion)
+         center = "V";
+      else if(monster != null)
+         center = "M";
+      else if (OOprinciple != null)
+         center = "X";
+      else if (hasExit)
+         center = "O" ;
+      else if(hasEntrance)
+         center = "I";
+      else
+         center = "M";
+             
       String visualizedRoom = RoomEdges.chooseRoom(xCord,yCord, center);
    }
    private boolean getRandomChance(int percentChance)

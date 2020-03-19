@@ -53,10 +53,14 @@ public class Maze {
             return maze;
         }
         
-    public Room getRoom(int xCord, int yCord)
+    public Room getRoom(int x, int y)
     {
-      
-      
-      return maze[xCord][yCord];
+      if(x < 0|| x>4 ||y<0 || y> 4)
+      {
+         System.out.println("you cannot enter this room for whatever reason. Go back to start");
+         return maze[0][0];
+      }
+      else
+         return maze[x][y];
     }
 }
