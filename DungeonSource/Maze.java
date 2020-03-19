@@ -9,6 +9,7 @@ public class Maze {
         public boolean exitMade = false;
 
 
+
         public Maze(Hero theHero){
             maze = buildDungeon();
             this.theHero = theHero;
@@ -67,11 +68,11 @@ public class Maze {
         public RoomThingDesc entranceExit(int x, int y){
             if(entranceMade && exitMade)
                 return null;
-            if(entranceMade && !exitMade && getRandomChance(40)){
+            if(entranceMade && !exitMade && getRandomChance(10)){
 
                 return new Exit();
             }
-            if(!entranceMade && exitMade && getRandomChance(40)){
+            if(!entranceMade && exitMade && getRandomChance(10)){
                 this.currrentLocation = maze[x][y];
                 return new Entrance();
             }
@@ -94,22 +95,24 @@ public class Maze {
         }
 
         public Monster randomMonster(){
-            int random = (int)Math.random() * 5;
-            if(random == 1)
+            Random random = new Random();
+            int ranInt = random.nextInt() % 5;
+            if(ranInt == 1)
                 return new Skeleton();
-            else if(random == 2)
+            else if(ranInt == 2)
                 return new Gremlin();
-            else if(random == 3)
+            else if(ranInt == 3)
                 return new Ogre();
-            else if(random == 4)
+            else if(ranInt == 4)
                 return new Gremlin();
             else
                 return new Dragon();
         }
 
         private boolean getRandomChance(int percentChance){
-            int random = (int)Math.random() * 100;
-            if(percentChance > random)
+            Random random = new Random();
+            int ranInt = random.nextInt() % percentChance;
+            if(percentChance > ranInt)
                 return true;
             return false;
         }
