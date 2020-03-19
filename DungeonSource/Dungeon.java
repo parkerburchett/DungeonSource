@@ -16,12 +16,12 @@ public class Dungeon
     }//end main method
 
 
-
-	public static void playGame(Maze maze , Scanner kb , Hero theHero){
+      public static void playGame(Maze maze, Scanner kb, Hero theHero)
+      {
     	do{
     		System.out.println("What direction would you like to go?");
 			directionPrompt();
-    		move(maze , kb);
+    		move(theHero , kb);
     		if(maze.currrentLocation.getMonster() != null){
     			battle(theHero , maze.currrentLocation.getMonster() , kb);
 			}
@@ -41,13 +41,13 @@ public class Dungeon
     	return inputDirection(kb);
 	}
 
-	public static void move( Maze maze , Scanner kb){
+	public static void move( Hero hero , Scanner kb){
     	String direction = inputDirection(kb);
 
-    	if(direction.equals("w")){	maze.moveNorth();}
-    	else if(direction.equals("a")){maze.moveWest();}
-    	else if(direction.equals("s")){maze.moveSouth();}
-    	else{	maze.moveEast();}
+    	if(direction.equals("w")){	hero.moveNorth();}
+    	else if(direction.equals("a")){hero.moveWest();}
+    	else if(direction.equals("s")){hero.moveSouth();}
+    	else{	hero.moveEast();}
 	}
 
 	public static Hero chooseHero(Scanner kb)

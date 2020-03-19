@@ -26,8 +26,8 @@ public class Maze {
                whereOOPrinciplesWillBe[i] = i + (r.nextInt(5) * 10); // pseudorandom The OOprinciples will never have the same xCords. this makes it much easier to be unique.
                do
                {
-                  whereOOPrinciplesWillBe[0] = i + (r.nextInt(5) * 10);
-               }while(whereOOPrinciplesWillBe[0] != entranceKey && whereOOPrinciplesWillBe[0] != exitKey);
+                  whereOOPrinciplesWillBe[i] = i + (r.nextInt(5) * 10);
+               }while(whereOOPrinciplesWillBe[i] == entranceKey && whereOOPrinciplesWillBe[0] == exitKey);
             }
             
             // at this point all of the keys are unique.
@@ -36,19 +36,19 @@ public class Maze {
                for(int y =0; y < 50; y= y+10)
                {
                   if (x+y == exitKey)
-                     maze[x][y] = new Room(true, false, null, x, y/10);
+                     maze[x][y/10] = new Room(true, false, null, x, y/10);
                   else if (x+y == entranceKey)
-                     maze[x][y] = new Room(false, true, null, x, y/10);
+                     maze[x][y/10] = new Room(false, true, null, x, y/10);
                   else if (x+y == whereOOPrinciplesWillBe[0])
-                     maze[x][y] = new Room(false, false, "Abstraction", x, y/10);
+                     maze[x][y/10] = new Room(false, false, "Abstraction", x, y/10);
                   else if (x+y == whereOOPrinciplesWillBe[1])
-                     maze[x][y] = new Room(false, false, "Inheritance", x, y/10);
+                     maze[x][y/10] = new Room(false, false, "Inheritance", x, y/10);
                   else if (x+y == whereOOPrinciplesWillBe[2])
-                     maze[x][y] = new Room(false, false, "Polymorphism", x, y/10);
+                     maze[x][y/10] = new Room(false, false, "Polymorphism", x, y/10);
                   else if (x+y == whereOOPrinciplesWillBe[3])
-                     maze[x][y] = new Room(false, false, "Encapsulation", x, y/10);
+                     maze[x][y/10] = new Room(false, false, "Encapsulation", x, y/10);
                   else
-                     maze[x][y] = new Room(false, false, null, x, y);
+                     maze[x][y/10] = new Room(false, false, null, x, y/10);
                }          
             return maze;
         }
