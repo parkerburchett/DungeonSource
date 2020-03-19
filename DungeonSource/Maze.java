@@ -5,7 +5,7 @@ public class Maze {
         public Room currrentLocation, exit;
 
         public Maze(Hero theHero){
-            maze = buildDungeon();
+            this.maze = buildDungeon();
             this.theHero = theHero;
         }
 
@@ -52,4 +52,9 @@ public class Maze {
                }          
             return maze;
         }
+        
+    public Room getRoom(int xCord, int yCord)
+    {
+      return maze[xCord][yCord];
+    }
 }

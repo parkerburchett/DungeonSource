@@ -11,6 +11,7 @@ public class Dungeon
 		   theHero = chooseHero(kb);  
 			Maze theMaze = new Maze(theHero);
          theHero.setCurrentRoom(theMaze);
+         theHero.setMaze(theMaze);
 			playGame(theMaze , kb , theHero);
 		} while (playAgain(kb));
 
@@ -24,7 +25,7 @@ public class Dungeon
 			directionPrompt();
     		move(theHero , kb);
     		if(theHero.currentRoom.getMonster() != null){
-    			battle(theHero , maze.currrentLocation.getMonster() , kb);
+    			battle(theHero , Hero.currentRoom.getMonster() , kb);
 			}
 		} while(true);// Needs condition
 		//then the exit becomes available

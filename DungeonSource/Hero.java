@@ -5,10 +5,11 @@ public abstract class Hero extends DungeonCharacter
 {
 	 private double chanceToBlock;
 	 private int numTurns;
-    public Room currentRoom;
+    
     public int numHealthPotions;
     public int numVisionPotions;
     public ArrayList<String> principles;
+    public static Room currentRoom;
     public Maze maze;
 
    public Hero(String name, int hitPoints, int attackSpeed,
@@ -27,6 +28,10 @@ public abstract class Hero extends DungeonCharacter
    public void setCurrentRoom(Maze maze)
    {
       this.currentRoom = maze.maze[0][0];
+   }
+   public void setMaze(Maze maze)
+   {
+      this.maze = maze;
    }
 
    public String readName()
@@ -100,7 +105,11 @@ public abstract class Hero extends DungeonCharacter
       if(currentRoom.yCord() == 0)
          System.out.println("You are on the top edge of the Dungeon. You cannot move North");
       else
-         currentRoom = maze.maze[currentRoom.xCord()][currentRoom.yCord()+1];
+      {
+         int currentXCord = currentRoom.xCord();
+         int currentYCord = currentRoom.yCord();
+         currentRoom = maze.getRoom(currentXCord, currentYCord-1);
+      }
    }
    
    public void moveSouth()
@@ -108,21 +117,32 @@ public abstract class Hero extends DungeonCharacter
       if(currentRoom.yCord() == 4)
          System.out.println("You are on the bottom edge of the Dungeon. You cannot move South");
       else
-         currentRoom = maze.maze[currentRoom.xCord()][currentRoom.yCord()-1];
+      {
+         int currentXCord = currentRoom.xCord();
+         int currentYCord = currentRoom.yCord();
+         currentRoom = maze.getRoom(currentXCord, currentYCord+1);
+      }
    }
    public void moveWest()
    {
       if(currentRoom.xCord() == 0)
          System.out.println("You are on the westmost edge of the Dungeon. You cannot move West");
       else
-         currentRoom = maze.maze[currentRoom.xCord()-1][currentRoom.yCord()];
+      {
+         int currentXCord = currentRoom.xCord();
+         int currentYCord = currentRoom.yCord();
+         currentRoom = maze.getRoom(currentXCord-1, currentYCord);
+      }
    }
    public void moveEast()
    {
       if(currentRoom.xCord() == 4)
          System.out.println("You are on the eastmost edge of the Dungeon. You cannot move east");
       else
-         currentRoom = maze.maze[currentRoom.xCord()+1][currentRoom.yCord()];
-   }
+      {
+         int currentXCord = currentRoom.xCord();
+         int currentYCord = currentRoom.yCord();
+         currentRoom = maze.getRoom(currentXCord-1, currentYCord);
+      }   }
    
 }//end Hero class
