@@ -24,14 +24,14 @@ public class Room
       this.xCord = xCord;
       this.yCord = yCord;
       
-      
-      if(getRandomChance(25))
-         this.monster = randomMonster();
-      this.hasPit = getRandomChance(10);
-      this.hasVisionPotion = getRandomChance(10);
-      this.hasHealthPotion = getRandomChance(10);
-  
-      
+      if(this.hasExit == false && this.hasEntrance == false)
+      { 
+         if(getRandomChance(25))
+            this.monster = randomMonster();
+         this.hasPit = getRandomChance(10);
+         this.hasVisionPotion = getRandomChance(10);
+         this.hasHealthPotion = getRandomChance(10);
+      }
    }
    
    public Monster getMonster(){return this.monster;}
@@ -58,15 +58,15 @@ public class Room
       int ranInt = random.nextInt() % 5;
       MonsterFactory f = new MonsterFactory();
       if(ranInt == 1)
-          return f.createSkelleton();
+          return f.createSkeleton();
       else if(ranInt == 2)
-          return new Gremlin();
+          return f.createGremlin();
       else if(ranInt == 3)
-          return new Ogre();
+          return f.createDragon();
       else if(ranInt == 4)
-          return new Gremlin();
+          return f.createOgre();
       else
-          return new Dragon();
+          return f.createGhoul();
    }
 
 
