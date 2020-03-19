@@ -19,6 +19,7 @@ public abstract class Hero extends DungeonCharacter
 	 super(name, hitPoints, attackSpeed, chanceToHit, damageMin, damageMax, ATTACK_DESCRIPTION);
     this.chanceToBlock = chanceToBlock;
     this.setName(readName());
+    this.principles = new ArrayList<String>(0);
     }
   
    public double getChanceTobBlock(){return this.chanceToBlock;}
@@ -76,7 +77,7 @@ public abstract class Hero extends DungeonCharacter
          System.out.println("You cannot use a vison potion when you have none");  
       else
       {
-        // Not done yet
+        // Not Finished
         this.numVisionPotions--;
       }    
    }
@@ -91,12 +92,14 @@ public abstract class Hero extends DungeonCharacter
       System.out.println("Your health is now: "+ Integer.toString(getHitPoints()));
    }
    
-   public String getHeroStatus() // untested
+   public String getStatus() 
    {
       String str = this.getName() + " is in room: (" + Integer.toString(currentRoom.xCord()) + ", " + Integer.toString(currentRoom.yCord())+ ") \n";
       str = str + "Has " + Integer.toString(numHealthPotions) + " health potions.\n";
       str = str + "Has " + Integer.toString(numVisionPotions) + " vision potions.\n";
-      str = str + " and has the following OO Principles: /n";
+      str = str + "Has " + Integer.toString(getHitPoints()) + " hitpoints.\n";
+      str = str + " and has the following OO Principles: \n";
+      
       for (String s : principles){ str = str + s + "\n";}
       return str;
    }

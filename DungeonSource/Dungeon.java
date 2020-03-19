@@ -21,7 +21,9 @@ public class Dungeon
       public static void playGame(Maze maze, Scanner kb, Hero theHero)
       {
     	do{
-    		System.out.println("What direction would you like to go?");
+    		seeStatus(kb, theHero);
+         
+         System.out.println("What direction would you like to go?");
 			directionPrompt();
     		move(theHero , kb);
     		if(theHero.currentRoom.getMonster() != null){
@@ -145,4 +147,13 @@ public class Dungeon
 		else//both are alive so user quit the game
 			System.out.println("Quitters never win ;-)");
 	}
+   
+   public static void seeStatus(Scanner kb, Hero theHero)
+   {
+      System.out.println("Would you like to know your status");
+      System.out.println("y for yes. anything else for no");
+      String choice = kb.nextLine();
+      if (choice.equals("y"))
+         System.out.println(theHero.getStatus());
+   }
 }
