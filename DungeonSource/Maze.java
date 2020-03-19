@@ -1,6 +1,6 @@
 import java.util.*;
 public class Maze {
-        private Room[][] maze = new Room[5][5];
+        public  Room[][] maze = new Room[5][5];
         private Hero theHero;
         public Room currrentLocation, exit;
 
